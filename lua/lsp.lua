@@ -25,10 +25,6 @@ capabilities.workspace.workspaceEdit = {
         ["delete"] = true;
     };
 }
-require 'lspconfig'.gopls.setup {
-    on_attach = on_attach;
-    capabilities = capabilities
-}
 
 
 
@@ -74,9 +70,6 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
--- local servers = { 'gopls', 'tsserver' }
 local servers = { 'gopls', 'eslint', 'tsserver', 'sumneko_lua' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
@@ -107,7 +100,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" },
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- Disable signs
         signs = true,
     }
 )

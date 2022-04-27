@@ -1,6 +1,5 @@
 vim.api.nvim_set_keymap('n', '<M-1>', ':NERDTreeToggle<CR>', {})
 
-vim.api.nvim_set_keymap('n', '<M-9>', '<cmd>!go test ./...<CR>', { noremap = true, silent = true, expr = false })
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "lua", "go" },
@@ -14,3 +13,6 @@ vim.api.nvim_create_autocmd("FileType", {
         end
     end
 })
+
+
+vim.api.nvim_set_keymap('n', '<M-9>', '<cmd>!go test ./...<CR>', { noremap = true, silent = true, expr = false })
