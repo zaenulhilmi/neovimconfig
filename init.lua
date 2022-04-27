@@ -16,7 +16,6 @@ require('packer').startup(function(use)
     use 'sharkdp/fd'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
-    use 'git@github.com:zaenulhilmi/popup.nvim'
     use 'neovim/nvim-lspconfig'
     use 'ThePrimeagen/harpoon'
     use 'APZelos/blamer.nvim'
