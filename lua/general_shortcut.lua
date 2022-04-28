@@ -1,5 +1,5 @@
 vim.api.nvim_set_keymap('i', 'jk', '<esc>', {})
-vim.api.nvim_set_keymap('n', '<leader>l', ':echo "hello"', {})
+vim.api.nvim_set_keymap('n', '<leader>l', ':LspStart<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>fg', ':Telescope live_grep<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>b', ':BlamerToggle<cr>', {})
