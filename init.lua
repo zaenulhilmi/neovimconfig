@@ -9,9 +9,6 @@ require('packer').startup(function(use)
     use 'gruvbox-community/gruvbox'
     use 'NLKNguyen/papercolor-theme'
     use 'vim-airline/vim-airline'
-    use {
-        'neoclide/coc.nvim', branch = 'release'
-    }
     use 'github/copilot.vim'
     use 'sharkdp/fd'
     use 'nvim-lua/plenary.nvim'
