@@ -70,7 +70,7 @@ local on_attach = function(client, bufnr)
 
 end
 
-local servers = { 'gopls', 'eslint', 'tsserver', 'sumneko_lua', 'intelephense' }
+local servers = { 'gopls', 'eslint', 'tsserver', 'sumneko_lua', 'intelephense', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
