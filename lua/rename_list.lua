@@ -13,14 +13,6 @@ function GetDocument()
          print(vim.inspect(err))
          print(vim.inspect(result))
          print(vim.inspect(ctx))
-        -- for _, v in ipairs(result) do
-        --     P(v.name)
-        --      if v.kind == 11 then
-        --          P(v)
-        --      end
-        -- end
-
-
     end)
 end
 
