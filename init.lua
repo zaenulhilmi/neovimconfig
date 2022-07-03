@@ -16,6 +16,8 @@ require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
     use 'APZelos/blamer.nvim'
     use 'preservim/nerdtree'
+    use 'scrooloose/syntastic'
+    use 'dbeniamine/cheat.sh-vim'
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
     use {
         'numToStr/Comment.nvim',
