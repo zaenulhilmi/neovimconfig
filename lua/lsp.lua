@@ -85,6 +85,18 @@ for _, lsp in ipairs(servers) do
                     disable = { "unused_local", "lowercase-global", "undefined_global" },
                     globals = { 'vim', 'require', 'ipairs', 'print', 'os', "error", "type", "tonumber", "math", "string" }
                 }
+            },
+            gopls = {
+                staticcheck = true,
+                analyses = {
+                    ST1000 = true,
+                    ST1003 = true,
+                    ST1016 = true,
+                    ST1020 = true,
+                    ST1021 = true,
+                    ST1022 = true,
+                    ST1023 = true,
+                }
             }
         }
     }
