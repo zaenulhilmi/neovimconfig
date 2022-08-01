@@ -1,9 +1,12 @@
+
 vim.api.nvim_set_keymap('n', '<M-1>', ':NERDTreeToggle<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>1', ':NERDTreeToggle<CR>', {})
 
 vim.api.nvim_set_keymap('n', '<M-2>', ':EslintFixAll<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>2', ':NERDTreeToggle<CR>', {})
 
+vim.api.nvim_set_keymap('n', '<M-5>', ':r! date<CR>A<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>5', ':r! date<CR>A<CR>', {})
 
 vim.api.nvim_create_augroup("AltNumberShortcuts", { clear = false })
 vim.api.nvim_create_autocmd("FileType", {
