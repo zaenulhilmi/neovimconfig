@@ -10,11 +10,11 @@ require('packer').startup(function(use)
     use 'NLKNguyen/papercolor-theme'
     use 'vim-airline/vim-airline'
     use 'sharkdp/fd'
+    use 'tpope/vim-fugitive'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'neovim/nvim-lspconfig'
     use 'ThePrimeagen/harpoon'
-    use 'APZelos/blamer.nvim'
     use 'preservim/nerdtree'
     use 'scrooloose/syntastic'
     use 'dbeniamine/cheat.sh-vim'
@@ -26,7 +26,7 @@ require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-    use 'github/copilot.vim'
+    --use 'github/copilot.vim'
 end)
 
 

@@ -18,3 +18,6 @@ vim.cmd([[set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent smartta
 
 
 vim.cmd([[let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}]])
+
+
+vim.api.nvim_set_keymap('n', '<leader>cc', ":let @+=expand('%:p')<CR>", {})
