@@ -5,28 +5,28 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require('packer').startup(function(use)
-    use 'zaenulhilmi/terminside.vim'
-    use 'gruvbox-community/gruvbox'
-    use 'NLKNguyen/papercolor-theme'
-    use 'vim-airline/vim-airline'
-    use 'sharkdp/fd'
     use 'tpope/vim-fugitive'
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
-    use 'neovim/nvim-lspconfig'
-    use 'ThePrimeagen/harpoon'
-    use 'preservim/nerdtree'
-    use 'scrooloose/syntastic'
-    use 'dbeniamine/cheat.sh-vim'
-    use 'dense-analysis/ale'
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
-    --use 'github/copilot.vim'
+
+  use 'zaenulhilmi/terminside.vim'
+  use 'gruvbox-community/gruvbox'
+  use 'NLKNguyen/papercolor-theme'
+  use 'vim-airline/vim-airline'
+  use 'sharkdp/fd'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim'
+  use 'neovim/nvim-lspconfig'
+  use 'ThePrimeagen/harpoon'
+  use 'APZelos/blamer.nvim'
+  use 'preservim/nerdtree'
+  use 'dbeniamine/cheat.sh-vim'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+  use 'github/copilot.vim'
 end)
 
 
