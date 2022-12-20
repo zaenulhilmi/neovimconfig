@@ -1,4 +1,4 @@
-vim.cmd("colorscheme PaperColor")
+vim.cmd("colorscheme gruvbox")
 vim.g.mapleader = " "
 vim.go.guicursor = ''
 vim.go.hidden = true
@@ -14,7 +14,7 @@ vim.wo.colorcolumn = "80"
 vim.cmd[[set noswapfile]]
 vim.cmd[[cabbrev h vert bo h]]
 vim.cmd([[let g:mapleader = " "]])
-vim.cmd([[set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent smarttab]])
+vim.cmd([[set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smartindent smarttab]])
 
 
 vim.cmd([[let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}]])
