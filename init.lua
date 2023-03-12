@@ -29,23 +29,10 @@ require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
     use 'github/copilot.vim'
 
-    -- debugger
-    use 'mfussenegger/nvim-dap'
-    use 'leoluz/nvim-dap-go'
-    use 'rcarriga/nvim-dap-ui'
-    use 'theHamsta/nvim-dap-virtual-text'
-    use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
-    use {
-        "microsoft/vscode-js-debug",
-        opt = true,
-        run = "npm install --legacy-peer-deps && npm run compile"
-    }
+
+    use "williamboman/mason.nvim"
 
 end)
-
-require('dap-go').setup()
-
-
 
 
 
@@ -54,4 +41,4 @@ require('option')
 require('lsp')
 require('alt_number_shortcut')
 require('general_shortcut')
-require('dap_config')
+require("mason").setup()

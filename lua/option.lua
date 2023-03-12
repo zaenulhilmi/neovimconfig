@@ -1,4 +1,5 @@
 vim.cmd("colorscheme gruvbox")
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 vim.g.mapleader = " "
 vim.go.guicursor = ''
 vim.go.hidden = true
@@ -18,3 +19,5 @@ vim.cmd([[set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smartindent smartta
 vim.cmd([[let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}]])
 
 vim.api.nvim_set_keymap('n', '<leader>cc', ":let @+=expand('%:p')<CR>", {})
+
+

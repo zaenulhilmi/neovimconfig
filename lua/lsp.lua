@@ -72,7 +72,7 @@ local on_attach = function(client, bufnr)
 
 end
 
-local servers = { 'gopls', 'tsserver', 'eslint',  'sumneko_lua', 'intelephense', 'rust_analyzer', 'pyright' }
+local servers = { 'gopls', 'tsserver', 'eslint', 'intelephense', 'rust_analyzer', 'pyright' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -96,6 +96,11 @@ for _, lsp in ipairs(servers) do
                     ST1021 = true,
                     ST1022 = true,
                     ST1023 = true,
+                }
+            },
+            rust_analyzer = {
+                diagnostics = {
+                    disabled = { "unresolved-proc-macro" }
                 }
             }
         }
