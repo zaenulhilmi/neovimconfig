@@ -1,0 +1,3 @@
+vim.bo.filetype = 'javascript.jsx'
+vim.cmd([[set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent smarttab]])
+

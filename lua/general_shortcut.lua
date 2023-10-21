@@ -1,5 +1,7 @@
 vim.api.nvim_set_keymap('i', 'jk', '<esc>', {})
-vim.api.nvim_set_keymap('n', '<leader>l', ':LspStart<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader>ls', ':LspStart<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader>ce', ':Copilot enable<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader>cd', ':Copilot disable<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>fg', ':Telescope live_grep<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>bl', ':Git blame<cr>', {})

@@ -34,7 +34,6 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-    P("Lsp on attach: " .. client.name)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -66,13 +65,16 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-    buf_set_keymap('n', '<space>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    -- buf_set_keymap('n', '<space>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    -- add format async true
+    buf_set_keymap('n', '<space>fc', '<cmd>lua vim.lsp.buf.format(nil, 1000)<CR>', opts)
+    
     buf_set_keymap('n', '<space>ls', '<cmd>LspStart<CR>', opts)
 
 
 end
 
-local servers = { 'gopls', 'tsserver', 'eslint', 'intelephense', 'rust_analyzer', 'pyright' }
+local servers = { 'gopls', 'tsserver', 'eslint', 'intelephense', 'rust_analyzer', 'pyright', 'dartls' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -112,7 +114,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" },
     {
         pattern = { "*.go", "*.lua" },
         callback = function()
-            vim.lsp.buf.formatting_sync(nil, 1000)
+            -- vim.lsp.buf.formatting_sync(nil, 1000)
         end,
     }
 )

@@ -9,7 +9,6 @@ require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
     use 'zaenulhilmi/terminside.vim'
     use 'gruvbox-community/gruvbox'
-    use 'NLKNguyen/papercolor-theme'
     use 'vim-airline/vim-airline'
     use 'sharkdp/fd'
     use 'nvim-lua/plenary.nvim'
@@ -25,12 +24,27 @@ require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-
     use 'nvim-treesitter/nvim-treesitter'
     use 'github/copilot.vim'
 
 
     use "williamboman/mason.nvim"
+
+    use {
+        'wthollingsworth/pomodoro.nvim',
+        requires = 'MunifTanjim/nui.nvim',
+        config = function()
+            require('pomodoro').setup({
+                time_work = 25,
+                time_break_short = 5,
+                time_break_long = 20,
+                timers_to_long_break = 4
+            })
+        end
+    }
+
+    use "dharanasoft/rtf-highlight"
+
 
 end)
 

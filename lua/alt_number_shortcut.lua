@@ -26,15 +26,14 @@ vim.api.nvim_create_autocmd("FileType", {
 			vim.api.nvim_set_keymap('n', '<leader>8', '<cmd>!lua ' .. file_name .. ' <CR>', { noremap = true, silent = true, expr = false })
         elseif match == "typescript" then
             local file_name_no_ext = string.sub(file_name, 1, -4)
-            P("Load filetype ")
 			vim.api.nvim_set_keymap('n', '<M-8>', '<cmd>!tsc ' .. file_name .. ' && node ' .. file_name_no_ext .. '.js <CR>', { noremap = true, silent = true, expr = false })
 			vim.api.nvim_set_keymap('n', '<leader>8', '<cmd>!tsc ' .. file_name .. ' && node ' .. file_name_no_ext .. '.js <CR>', { noremap = true, silent = true, expr = false })
 		end
 	end
 })
 
-vim.api.nvim_set_keymap('n', '<M-9>', '<cmd>!go test ./...<CR>', { noremap = true, silent = true, expr = false })
-vim.api.nvim_set_keymap('n', '<leader>9', '<cmd>!go test ./...<CR>', { noremap = true, silent = true, expr = false })
+-- vim.api.nvim_set_keymap('n', '<M-9>', '<cmd>!go test ./...<CR>', { noremap = true, silent = true, expr = false })
+-- vim.api.nvim_set_keymap('n', '<leader>9', '<cmd>!go test ./...<CR>', { noremap = true, silent = true, expr = false })
 
 vim.api.nvim_set_keymap('n', '<M-0>', '<Plug>TerminsideOpen;', { noremap = true, silent = true, expr = false })
 vim.api.nvim_set_keymap('n', '<leader>0', '<Plug>TerminsideOpen;', { noremap = true, silent = true, expr = false })

@@ -1,5 +1,4 @@
-vim.cmd("colorscheme gruvbox")
-vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd([[colorscheme gruvbox]])
 vim.g.mapleader = " "
 vim.go.guicursor = ''
 vim.go.hidden = true
