@@ -10,6 +10,7 @@ vim.wo.wrap = false
 vim.wo.scrolloff = 8
 vim.wo.signcolumn = "yes"
 vim.wo.colorcolumn = "80"
+vim.wo.relativenumber = true
 -- vim.bo.swapfile = false
 vim.cmd[[set noswapfile]]
 vim.cmd[[cabbrev h vert bo h]]

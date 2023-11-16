@@ -44,6 +44,11 @@ require('packer').startup(function(use)
     }
 
     use "dharanasoft/rtf-highlight"
+    use{ 'anuvyklack/pretty-fold.nvim',
+       config = function()
+          require('pretty-fold').setup()
+       end
+    }
 
 
 end)

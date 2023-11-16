@@ -112,6 +112,24 @@ end
 
 vim.api.nvim_create_autocmd({ "BufWritePre" },
     {
+        callback = function()
+            -- save mkview
+            vim.cmd("mkview")
+        end,
+    }
+)
+
+vim.api.nvim_create_autocmd({ "BufReadPost" },
+    {
+        callback = function()
+            -- load view
+            vim.cmd("silent! loadview")
+        end,
+    }
+)
+
+vim.api.nvim_create_autocmd({ "BufWritePre" },
+    {
         pattern = { "*.go", "*.lua" },
         callback = function()
             -- vim.lsp.buf.formatting_sync(nil, 1000)
