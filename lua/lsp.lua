@@ -1,6 +1,8 @@
-local capabilities                   = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 capabilities.textDocument.codeAction = {
-    dynamicRegistration = true;
+    dynamicRegistration = true,
     codeActionLiteralSupport = {
         codeActionKind = {
             valueSet = {
@@ -12,21 +14,19 @@ capabilities.textDocument.codeAction = {
                 "refactor.rewrite",
                 "source",
                 "source.organizeImports",
-            };
-        };
-    };
+            },
+        },
+    },
 }
 
 capabilities.workspace.workspaceEdit = {
-    documentChanges = true;
+    documentChanges = true,
     resourceOperations = {
-        ["create"] = true;
-        ["rename"] = true;
-        ["delete"] = true;
-    };
+        ["create"] = true,
+        ["rename"] = true,
+        ["delete"] = true,
+    },
 }
-
-
 
 local nvim_lsp = require('lspconfig')
 
@@ -56,6 +56,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<space>r', '<cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>', opts)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<C-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('v', '<C-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', '<space>caa', '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>', opts)
 
@@ -68,13 +70,12 @@ local on_attach = function(client, bufnr)
     -- buf_set_keymap('n', '<space>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
     -- add format async true
     buf_set_keymap('n', '<space>fc', '<cmd>lua vim.lsp.buf.format(nil, 1000)<CR>', opts)
-    
+
     buf_set_keymap('n', '<space>ls', '<cmd>LspStart<CR>', opts)
-
-
 end
 
-local servers = { 'gopls', 'tsserver', 'eslint', 'intelephense', 'rust_analyzer', 'pyright', 'dartls' }
+local servers = { 'gopls', 'tsserver', 'intelephense', 'rust_analyzer', 'pyright', 'dartls', 'lua_ls' }
+
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
