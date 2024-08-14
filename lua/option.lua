@@ -1,7 +1,8 @@
 --vim.cmd([[colorscheme gruvbox]])
 vim.cmd([[colorscheme catppuccin-mocha]])
 vim.g.mapleader = " "
-vim.go.guicursor = 'n-v-c:block,i-ci-ve:ver25'
+-- vim.go.guicursor = 'n-v-c:block,i-ci-ve:ver25'
+vim.go.guicursor = ''
 vim.go.hidden = true
 vim.go.incsearch = true
 vim.go.hlsearch = false
