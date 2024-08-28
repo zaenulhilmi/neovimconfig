@@ -103,7 +103,7 @@ for _, lsp in ipairs(servers) do
             },
             rust_analyzer = {
                 diagnostics = {
-                    disabled = { "unresolved-proc-macro" }
+                    enableExperimental = true,
                 }
             }
         }

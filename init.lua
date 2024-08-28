@@ -39,11 +39,6 @@ require('packer').startup(function(use)
 
 
     use "dharanasoft/rtf-highlight"
-    use { 'anuvyklack/pretty-fold.nvim',
-        config = function()
-            require('pretty-fold').setup()
-        end
-    }
 
     use({
         "L3MON4D3/LuaSnip",
@@ -69,6 +64,7 @@ require('packer').startup(function(use)
             'stevearc/dressing.nvim', -- optional for vim.ui.select
         },
     }
+
 end)
 
 require('global')
@@ -126,7 +122,3 @@ require 'nvim-web-devicons'.setup {
 }
 require 'nvim-web-devicons'.get_icons()
 
--- Writing
-
-vim.api.nvim_exec([[
-]], false)
