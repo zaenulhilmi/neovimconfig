@@ -115,8 +115,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" },
     {
         callback = function()
             -- save mkview
-            vim.cmd("mkview")
-            print("mkview")
+            -- vim.cmd("mkview")
+            -- print("mkview")
         end,
     }
 )
@@ -124,10 +124,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" },
 vim.api.nvim_create_autocmd({ "BufReadPost" },
     {
         callback = function()
-            vim.defer_fn(function()
-                vim.cmd("silent! loadview")
-                print("loadview")
-            end, 100)
+            -- vim.defer_fn(function()
+                -- vim.cmd("silent! loadview")
+                -- print("loadview")
+            -- end, 100)
         end,
     }
 )

@@ -21,7 +21,7 @@ vim.cmd([[set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smartindent smartta
 
 vim.cmd([[let g:ale_linters = {'javascript': ['eslint'], 'python': ['pylint']}]])
 
-vim.opt.foldmethod = "syntax"
+-- vim.opt.foldmethod = "syntax"
 
 
 --vim.api.nvim_set_keymap('n', '<leader>cc', ":let @+=expand('%:p')<CR>", {})
