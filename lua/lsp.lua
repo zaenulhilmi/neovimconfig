@@ -1,5 +1,6 @@
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 capabilities.textDocument.codeAction = {
     dynamicRegistration = true,
@@ -19,17 +20,52 @@ capabilities.textDocument.codeAction = {
     },
 }
 
-capabilities.workspace.workspaceEdit = {
-    documentChanges = true,
-    resourceOperations = {
-        ["create"] = true,
-        ["rename"] = true,
-        ["delete"] = true,
-    },
-}
+-- capabilities.workspace.workspaceEdit = {
+--     documentChanges = true,
+--     resourceOperations = {
+--         ["create"] = true,
+--         ["rename"] = true,
+--         ["delete"] = true,
+--     },
+-- }
+
 
 local nvim_lsp = require('lspconfig')
 
+local cmp = require 'cmp'
+
+cmp.setup({
+    snippet = {
+        -- REQUIRED - you must specify a snippet engine
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+        end,
+    },
+    window = {
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' }, -- For vsnip users.
+        -- { name = 'luasnip' }, -- For luasnip users.
+        -- { name = 'ultisnips' }, -- For ultisnips users.
+        -- { name = 'snippy' }, -- For snippy users.
+    }, {
+        { name = 'buffer' },
+    })
+})
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -106,7 +142,8 @@ for _, lsp in ipairs(servers) do
                     enableExperimental = true,
                 }
             }
-        }
+        },
+        capabilities = capabilities,
     }
 end
 
@@ -125,8 +162,8 @@ vim.api.nvim_create_autocmd({ "BufReadPost" },
     {
         callback = function()
             -- vim.defer_fn(function()
-                -- vim.cmd("silent! loadview")
-                -- print("loadview")
+            -- vim.cmd("silent! loadview")
+            -- print("loadview")
             -- end, 100)
         end,
     }

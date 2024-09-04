@@ -65,6 +65,11 @@ require('packer').startup(function(use)
         },
     }
 
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
 end)
 
 require('global')
@@ -121,4 +126,3 @@ require 'nvim-web-devicons'.setup {
     },
 }
 require 'nvim-web-devicons'.get_icons()
-
